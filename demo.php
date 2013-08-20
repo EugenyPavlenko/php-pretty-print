@@ -7,7 +7,7 @@
 <body>
 	<?php
 	
-		include "pp.php";
+		include "PP.php";
 	
 		$testsArr = array(
 			array(
@@ -29,7 +29,8 @@
 			3,
 			"some string",
 			true, false,
-			null
+			null,
+			[1, 2, 3]
 		);
 	
 		foreach ($testsArr as $i => $t) {

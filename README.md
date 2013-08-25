@@ -37,3 +37,7 @@ Example of printing complicated object (collapse feature):
 ```
 Screenshot of result:
 http://take.ms/z5chDv
+
+Hints
+================
+Although, class & methods names are rather intuitive, you may want to do a wrapper for them and/or setup "live templates" in your IDE for handy (by hotkeys) inserting that in your code.

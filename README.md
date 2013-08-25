@@ -1,7 +1,7 @@
 php-pretty-print
 ================
 
-PHP any-variables pretty print (recursive)
+PHP any-variables pretty print (recursive), good for debugging.
 
 Supports:
 

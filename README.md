@@ -16,7 +16,7 @@ How to use
 ================
 ```php
 <?php
-	include "pp.php";
+	include "PP.php";
 	echo PP::do_($yourVariable);
 ?>
 ```

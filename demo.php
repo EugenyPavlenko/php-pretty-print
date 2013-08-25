@@ -33,7 +33,7 @@
 		
 		echo "<h2>Dump example, code:<br>pp::dump(123, \"string\", [1, 2, 5 => [\"q\", \"w\", \"r\", \"t\", \"y\"]]);</h2>";
 		$arr = [1, 2, 5 => ["q", "w", "r", "t", "y"]];
-		pp::dump(123, "string", $arr);
+		PP::dump(123, "string", $arr);
 
 		echo "<br>";
 		echo "<br>";

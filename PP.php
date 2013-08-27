@@ -27,7 +27,7 @@
 			$libPrefix          = 'phpPrettyPrint_',
 			$ulMarginLeft       = 20,
 			$ulMarginLeftLevels = 20,
-			$tablesStyle        = 'border-collapse: collapse;',
+			$tablesStyle        = 'border-collapse: collapse;font-size: 14px;',
 			$collapseSpanStyle  = 'border: 1px solid #dc143c; color: #dc143c; cursor: pointer; font-size: 11px; padding: 0px;',
 			$collapseSpanText   = '...',
 			$manySeparator      = "<br><br>";
@@ -68,9 +68,8 @@
 
 		private function printValue($v) {
 			if (is_string($v)) {
-				$v = htmlentities($v);
-				
 				if ($this->doCollapseLongStrings && (mb_strlen($v) > $this->longStringsLength)) {
+					$v      = htmlentities($v);
 					$tmpStr = '';
 					$tmpArr = explode(' ', $v);
 					$i      = 0;
@@ -93,6 +92,7 @@
 					
 					return $spanFull . $spanTmp;
 				} else {
+					$v = htmlentities($v);
 					return "<span style='color: #8b0000'>\"{$v}\"</span>";	
 				}
 			} elseif (is_array($v)) {
@@ -153,7 +153,7 @@
 					$pVal         = (is_array($val) && count($val)) ? $this->doRecursion($val, false, $level+1, $uniqueId) :  $this->printValue($val);
 					$liVisibility = ($this->doCollapseKeys && ($keysCount >= $this->applyKeyCollapseKeysLimit) && (($i+1) > $this->keysCountToLeaveWhenCollapsing)) ? 'none' : 'inline';
 					
-					$retStr      .= "<li style='display: {$liVisibility}' class='{$this->libPrefix}le{$level}'><table style='{$this->tablesStyle}'><tr valign='top'>";
+					$retStr      .= "<li style='display: {$liVisibility}' class='{$this->libPrefix}le{$level}'><table class='{$this->libPrefix}table' style='{$this->tablesStyle}'><tr valign='top'>";
 					$retStr      .= "<td>{$pKey}: </td>";
 					$retStr      .= "<td>{$bracketOpen}{$pVal}{$bracketClose}{$comma}</td>";
 					$retStr      .= "</tr></table></li>";

@@ -69,7 +69,7 @@
 		private function printValue($v) {
 			if (is_string($v)) {
 				if ($this->doCollapseLongStrings && (mb_strlen($v) > $this->longStringsLength)) {
-					$v      = htmlentities($v);
+					$v      = htmlspecialchars($v, null, 'UTF-8');
 					$tmpStr = '';
 					$tmpArr = explode(' ', $v);
 					$i      = 0;
@@ -92,7 +92,7 @@
 					
 					return $spanFull . $spanTmp;
 				} else {
-					$v = htmlentities($v);
+					$v = htmlspecialchars($v, null, 'UTF-8');
 					return "<span style='color: #8b0000'>\"{$v}\"</span>";	
 				}
 			} elseif (is_array($v)) {
@@ -117,8 +117,8 @@
 			$keyLen = 0;
 			foreach ($arr as $key => $val) {
 				$t = (string)$key;
-				if (strlen($t) > $keyLen)
-					$keyLen = strlen($t);
+				if (mb_strlen($t) > $keyLen)
+					$keyLen = mb_strlen($t);
 			}
 			
 			return $keyLen;
